@@ -46,7 +46,10 @@ def index(request):
 
 
 def about(request):
-    return HttpResponse("Rango says here is the about page.")
+    print(request.method)
+    
+    print(request.user)
+    return render(request, 'rango/about.html', {})
     """
     context_dict = {'boldmessage': "Rango says here is about page."}
     if request.session.get('visits'):
