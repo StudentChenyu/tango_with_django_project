@@ -1,17 +1,28 @@
-<!DOCTYPE html>
+{% extends 'rango/base.html' %}
 
-{% load static %}
+{% block title_block %}
+    About
+{% endblock %}
 
-<html>
-
-    <head>
-        <title>Rango</title>
-    </head>
-
-    <body>
-        <h1>Rango says...</h1>
-        <strong>Here is the about page.</strong><br />
-        <a href="/rango/">Index</a><br />
-        <img src="{% mdeia "cat.jpg" %}" alt="Picture of a Cat" />
-    </body>
-</html>
+{% block body_block %}
+<style>
+    .cat {
+        width: 200px;
+        height: auto;
+        border: 3px dotted black;
+        margin: 0 auto;
+    }
+</style><h1>About page...</h1>
+<div>
+    This tutorial has been put together by {{ author }}
+    <p>
+        Long cat says hello.
+        <br/><br/>
+        <b>{{ message }}</b>
+    </p>
+    <!-- Media files example -->
+    <img src="{{ MEDIA_URL }}cat.jpg" class="cat" alt="Picture of long cat"/>
+    <br/>
+    <img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" class="cat"/>
+</div>
+{% endblock %}
