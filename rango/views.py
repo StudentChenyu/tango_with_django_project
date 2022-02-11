@@ -26,13 +26,13 @@ def index(request):
         'categories': category_list,
         'pages': pages_list,
     }
-
     context_dict['bloodmessage'] = 'Cruchy, creamy, cookie, candy, cupcake!'
     context_dict['categories'] = category_list
     context_dict['pages'] = pages_list
 
     visitor_cookie_handler(request)
     context_dict['visits'] = request.session['visits']
+    context_dict['last_visit'] = request.session['last_visit']
     response = render(request, 'rango/index.html', context=context_dict)
 
     return response
