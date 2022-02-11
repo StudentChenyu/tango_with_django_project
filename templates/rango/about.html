@@ -1,24 +1,19 @@
 {% extends 'rango/base.html' %}
-
+{% load staticfiles %}
 {% block title_block %}
     About
 {% endblock %}
 
 {% block body_block %}
-<style>
-    .cat {
-        width: 200px;
-        height: auto;
-        border: 3px dotted black;
-        margin: 0 auto;
-    }
-</style><h1>About page...</h1>
+<h1>About page...</h1>
 <div>
     This tutorial has been put together by {{ author }}
     <p>
         Long cat says hello.
         <br/><br/>
         <b>{{ message }}</b>
+		<br/>
+        visits: {{ visits }}<br/>
     </p>
     <!-- Media files example -->
     <img src="{{ MEDIA_URL }}cat.jpg" class="cat" alt="Picture of long cat"/>

@@ -9,13 +9,18 @@
 
     <h1>Rango says...</h1>
     <div>
-        hey there partner!
+        {% if user.is_authenticated %}
+            howdy {{ user.username }}!
+				<a href="{% url 'add_category' %}">Add a New Category</a>
+        {% else %}
+            hey there partner!
+        {% endif %}
         <br/>
         <br/>
         <strong>{{ boldmessage }}</strong>
     </div>
     <div>
-        <h3>Most Liked Categories</h3>
+        <h2>Most Liked Categories</h2>
         {% if categories %}
             <ul>
                 {% for category in categories %}
@@ -26,7 +31,7 @@
             <strong>There are no categories present.</strong>
         {% endif %}
 
-        <h3>Most Viewed Pages</h3>
+        <h2>Most Viewed Pages</h2>
         {% if pages %}
             <ul>
                 {% for page in pages %}

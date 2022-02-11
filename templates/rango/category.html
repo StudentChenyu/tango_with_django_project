@@ -1,11 +1,7 @@
 {% extends 'rango/base.html' %}
-
+{% load staticfiles %}
 {% block title_block %}
-    {% if category %}
-        {{ category.name }}
-    {% else %}
-        Whoops!
-    {% endif %}
+    HomePage
 {% endblock %}
 
 {% block body_block %}
