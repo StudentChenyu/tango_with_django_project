@@ -3,10 +3,10 @@ from django.http import HttpResponse
 # from django.template import RequestContext
 from rango.models import Category
 from rango.models import Page
-# from rango.forms import CategoryForm
-# from django.shortcuts import redirect
-# from rango.forms import PageForm
-# from django.urls import reverse
+from rango.forms import CategoryForm
+from django.shortcuts import redirect
+from rango.forms import PageForm
+from django.urls import reverse
 # from rango.forms import UserForm, UserProfileForm
 # from django.contrib.auth import authenticate, login
 # from django.contrib.auth.decorators import login_required
@@ -76,6 +76,7 @@ def show_category(request, category_name_slug):
 
 """
 @login_required
+"""
 def add_category(request):
     form = CategoryForm()
     if request.method == 'POST':
@@ -87,9 +88,10 @@ def add_category(request):
         else:
             print(form.errors)
     return render(request, 'rango/add_category.html', {'form': form})
-
+"""
 
 @login_required
+"""
 def add_page(request, category_name_slug):
     try:
         category = Category.objects.get(slug=category_name_slug)
@@ -111,15 +113,15 @@ def add_page(request, category_name_slug):
                 page.views = 0
                 page.save()
 
-                return redirect(reverse('rango:show_category',
-                                        kwargs={'category_name_slug':
+                return redirect(reverse('rango:show_category', 
+                                        kwargs={'category_name_slug': 
                                                 category_name_slug}))
         else:
             print(form.errors)
 
     context_dict = {'form': form, 'category': category}
     return render(request, 'rango/add_page.html', context=context_dict)
-"""
+
 
 
 """
