@@ -41,8 +41,10 @@ def index(request):
     return response
  """
 
-"""
+
 def about(request):
+    return HttpResponse("Rango says here is the about page.")
+    """
     context_dict = {'boldmessage': "Rango says here is about page."}
     if request.session.get('visits'):
         visits = request.session.get('visits')
