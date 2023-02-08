@@ -7,6 +7,12 @@ from django.urls import reverse
 
 # Create your views here.
 
+def about(request):
+    print(request.method)
+    print(request.user)
+
+    return render(request,'rango/about.html',{})
+
 def index(request):
     context_dict = {'boldmessage': 'Crunchy, creamy, cookie, candy, cupcake!'}
     category_list=Category.objects.order_by('-likes')[:5]

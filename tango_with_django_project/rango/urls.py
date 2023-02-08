@@ -5,6 +5,7 @@ Created on Thu Jan 19 23:56:54 2023
 @author: Aluneth
 """
 
+from django.conf.urls import url
 from django.urls import path
 from rango import views
 
