@@ -24,4 +24,7 @@ Unknown Category
  The specified category does not exist.
  {% endif %}
 {% endif %}
+{% if user.is_authenticated %}
+        <a href="{% url 'rango:add_page' category.slug %}">Add Page</a>
+        {% endif %}
 {% endblock %}
